@@ -11,6 +11,7 @@
 .inner {
     height: 100%;
     width: var(--default-layout-width);
+    padding: 0 var(--default-layout-horizontal-spacing);
 
     margin: 0 auto;
     display: flex;
@@ -89,13 +90,36 @@ input:not(:placeholder-shown) ~ .search-btn {
     font-weight: 600;
     color: rgba(22, 24, 35, 0.5);
 }
+
+//action
 .actions {
+    display: flex;
+    align-items: center;
 }
+
+.action-btn {
+    font-size: 2.2rem;
+    background-color: transparent;
+    color: #161823;
+    padding: 4px 12px;
+    cursor: pointer;
+}
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 12px;
+    cursor: pointer;
+}
+
+//more btn
 .more-btn {
     font-size: 2rem;
     margin-left: 24px;
     background-color: transparent;
     padding: 4px 18px;
+    cursor: pointer;
 }
 
 //Menu
