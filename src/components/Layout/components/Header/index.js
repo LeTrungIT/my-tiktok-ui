@@ -12,10 +12,8 @@ import {
     faGear,
     faKeyboard,
     faMagnifyingGlass,
-    faMessage,
     faSignOut,
     faSpinner,
-    faUpload,
     faUser,
 } from '@fortawesome/free-solid-svg-icons';
 import 'tippy.js/dist/tippy.css';
@@ -26,6 +24,8 @@ import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
+import { InboxIcon, MessageIcon, PlusIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
@@ -104,13 +104,18 @@ function Header() {
                     {currentUser ? (
                         <>
                             <Tippy content="Upload videos" placement="bottom" delay={[0, 0]}>
+                                <Button outline className={cx('user-upload-btn')} leftIcon={<PlusIcon width="2rem" />}>
+                                    Upload
+                                </Button>
+                            </Tippy>
+                            <Tippy content="Messages" placement="bottom" delay={[0, 0]}>
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faUpload} />
+                                    <MessageIcon />
                                 </button>
                             </Tippy>
-                            <Tippy content="Chat with us" placement="bottom">
+                            <Tippy content="Inbox" placement="bottom">
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faMessage} />
+                                    <InboxIcon />
                                 </button>
                             </Tippy>
                         </>
@@ -122,10 +127,11 @@ function Header() {
                     )}
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img
+                            <Image
                                 className={cx('user-avatar')}
                                 alt="Nguyen van A"
                                 src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/fc081faf1ffeb06b0e4095c81ed61add.jpeg?x-expires=1670274000&x-signature=%2FzxhZf0xvsZAZIfIzMsIRFVD%2Fnw%3D"
+                                fallback=""
                             />
                         ) : (
                             <button className={cx('more-btn')}>

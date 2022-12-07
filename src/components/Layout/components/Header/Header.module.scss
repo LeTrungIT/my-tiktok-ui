@@ -96,7 +96,14 @@ input:not(:placeholder-shown) ~ .search-btn {
     display: flex;
     align-items: center;
 }
-
+.user-upload-btn {
+    color: rgba(22, 24, 35, 0.9) !important;
+    border-color: rgba(22, 24, 35, 0.2) !important;
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03) !important;
+        text-decoration: none !important;
+    }
+}
 .action-btn {
     font-size: 2.2rem;
     background-color: transparent;
