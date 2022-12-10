@@ -12,15 +12,16 @@ import {
     faUser,
 } from '@fortawesome/free-solid-svg-icons';
 import 'tippy.js/dist/tippy.css';
+import { Link } from 'react-router-dom';
 
 import styles from './Header.module.scss';
 import images from '~/assets/images';
-
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
 import { InboxIcon, MessageIcon, PlusIcon } from '~/components/Icons';
 import Image from '~/components/Image';
 import Search from '../Search';
+import routesConfig from '~/components/config/routes';
 
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
@@ -33,10 +34,27 @@ const MENU_ITEMS = [
                 { type: 'language', code: 'en', title: 'English' },
                 { type: 'language', code: 'vi', title: 'Tiếng Việt' },
                 { type: 'language', code: 'en', title: 'English' },
+                { type: 'language', code: 'en', title: 'English' },
+                { type: 'language', code: 'en', title: 'English' },
+                { type: 'language', code: 'en', title: 'English' },
+                { type: 'language', code: 'en', title: 'English' },
+                { type: 'language', code: 'en', title: 'English' },
+                { type: 'language', code: 'en', title: 'English' },
+                { type: 'language', code: 'en', title: 'English' },
+                { type: 'language', code: 'en', title: 'English' },
+                { type: 'language', code: 'en', title: 'English' },
+                { type: 'language', code: 'en', title: 'English' },
+                { type: 'language', code: 'en', title: 'English' },
+                { type: 'language', code: 'en', title: 'English' },
+                { type: 'language', code: 'en', title: 'English' },
+                { type: 'language', code: 'en', title: 'English' },
+                { type: 'language', code: 'en', title: 'English' },
+                { type: 'language', code: 'en', title: 'English' },
+                { type: 'language', code: 'en', title: 'English' },
             ],
         },
     },
-    { icon: <FontAwesomeIcon icon={faCircleQuestion} />, title: 'Feedback and Help', to: '/feedback' },
+    { icon: <FontAwesomeIcon icon={faCircleQuestion} />, title: 'Feedback and Help', to: routesConfig.feedback },
     { icon: <FontAwesomeIcon icon={faKeyboard} />, title: 'Keyboard shortcuts' },
 ];
 
@@ -51,18 +69,18 @@ function Header() {
 
     const userMenu = [
         { icon: <FontAwesomeIcon icon={faUser} />, title: 'View profile', to: '/@@nguyenvana' },
-        { icon: <FontAwesomeIcon icon={faCoins} />, title: 'Get coins', to: '/coin' },
+        { icon: <FontAwesomeIcon icon={faCoins} />, title: 'Get coins', to: routesConfig.coins },
         { icon: <FontAwesomeIcon icon={faGear} />, title: 'Settings' },
         ...MENU_ITEMS,
-        { icon: <FontAwesomeIcon icon={faSignOut} />, title: 'Log out', to: '/logout', separate: true },
+        { icon: <FontAwesomeIcon icon={faSignOut} />, title: 'Log out', to: routesConfig.logout, separate: true },
     ];
 
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <div className={cx('logo')}>
+                <Link to={routesConfig.home} className={cx('logo-link')}>
                     <img src={images.logo} alt="tiktok" />
-                </div>
+                </Link>
                 <Search />
 
                 <div className={cx('actions')}>
