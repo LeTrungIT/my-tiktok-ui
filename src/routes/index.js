@@ -3,44 +3,44 @@ import Following from '~/pages/Following';
 import Profile from '~/pages/Profile';
 import Upload from '~/pages/Upload';
 import Search from '~/pages/Search';
-import { HeaderOnlyLayout } from '~/components/Layout';
-import routesConfig from '~/components/config/routes';
+import { HeaderOnlyLayout } from '~/layouts';
+import config from '~/config';
 
 const publicRoutes = [
     {
-        path: routesConfig.home,
+        path: config.routes.home,
         component: Home,
     },
     {
-        path: routesConfig.following,
+        path: config.routes.following,
         component: Following,
     },
     {
-        path: routesConfig.profile,
+        path: config.routes.profile,
         component: Profile,
     },
     {
-        path: routesConfig.upload,
+        path: config.routes.upload,
         component: Upload,
         layout: HeaderOnlyLayout,
     },
     {
-        path: routesConfig.search,
+        path: config.routes.search,
         component: Search,
         layout: null,
     },
     {
-        path: routesConfig.feedback,
+        path: config.routes.feedback,
         component: Search,
         layout: null,
     },
     {
-        path: routesConfig.coin,
+        path: config.routes.coin,
         component: Search,
         layout: null,
     },
     {
-        path: routesConfig.logout,
+        path: config.routes.logout,
         component: Search,
     },
 ];

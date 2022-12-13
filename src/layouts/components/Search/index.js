@@ -4,7 +4,7 @@ import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState, useEffect, useRef } from 'react';
 
-import * as SearchServices from '~/services/searchServices';
+import * as SearchService from '~/services/searchService';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import styles from './Search.module.scss';
@@ -31,7 +31,7 @@ function Search() {
         setLoading(true);
         const getSearchUserData = async () => {
             try {
-                const res = await SearchServices.search(debounced);
+                const res = await SearchService.search(debounced);
                 setSearchResult(res);
                 setLoading(false);
             } catch (error) {

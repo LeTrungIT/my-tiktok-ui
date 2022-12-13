@@ -21,7 +21,7 @@ import Menu from '~/components/Popper/Menu';
 import { InboxIcon, MessageIcon, PlusIcon } from '~/components/Icons';
 import Image from '~/components/Image';
 import Search from '../Search';
-import routesConfig from '~/components/config/routes';
+import config from '~/config';
 
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
@@ -54,7 +54,7 @@ const MENU_ITEMS = [
             ],
         },
     },
-    { icon: <FontAwesomeIcon icon={faCircleQuestion} />, title: 'Feedback and Help', to: routesConfig.feedback },
+    { icon: <FontAwesomeIcon icon={faCircleQuestion} />, title: 'Feedback and Help', to: config.routes.feedback },
     { icon: <FontAwesomeIcon icon={faKeyboard} />, title: 'Keyboard shortcuts' },
 ];
 
@@ -69,16 +69,16 @@ function Header() {
 
     const userMenu = [
         { icon: <FontAwesomeIcon icon={faUser} />, title: 'View profile', to: '/@@nguyenvana' },
-        { icon: <FontAwesomeIcon icon={faCoins} />, title: 'Get coins', to: routesConfig.coins },
+        { icon: <FontAwesomeIcon icon={faCoins} />, title: 'Get coins', to: config.routes.coins },
         { icon: <FontAwesomeIcon icon={faGear} />, title: 'Settings' },
         ...MENU_ITEMS,
-        { icon: <FontAwesomeIcon icon={faSignOut} />, title: 'Log out', to: routesConfig.logout, separate: true },
+        { icon: <FontAwesomeIcon icon={faSignOut} />, title: 'Log out', to: config.routes.logout, separate: true },
     ];
 
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <Link to={routesConfig.home} className={cx('logo-link')}>
+                <Link to={config.routes.home} className={cx('logo-link')}>
                     <img src={images.logo} alt="tiktok" />
                 </Link>
                 <Search />
@@ -88,6 +88,7 @@ function Header() {
                         <>
                             <Tippy content="Upload videos" placement="bottom" delay={[0, 0]}>
                                 <Button
+                                    to={config.routes.upload}
                                     outline
                                     small
                                     className={cx('user-upload-btn')}
