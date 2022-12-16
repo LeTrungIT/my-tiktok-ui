@@ -7,5 +7,6 @@ const routes = {
     feedback: '/feedback',
     coin: '/coin',
     logout: '/logout',
+    live: '/live',
 };
 export default routes;

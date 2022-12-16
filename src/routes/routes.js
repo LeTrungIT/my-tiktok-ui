@@ -43,6 +43,10 @@ const publicRoutes = [
         path: config.routes.logout,
         component: Search,
     },
+    {
+        path: config.routes.live,
+        component: Search,
+    },
 ];
 const privateRoutes = {};
 export { publicRoutes, privateRoutes };
