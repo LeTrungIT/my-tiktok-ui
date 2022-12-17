@@ -1,0 +1,46 @@
+.wrapper {
+    width: 320px;
+    padding: 20px;
+}
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.avatar {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+
+    border-radius: 50%;
+}
+.follow-btn {
+    padding: 6px 16px;
+}
+.body {
+    margin-top: 12px;
+    flex: 1;
+}
+.nick-name {
+    font-size: 1.8rem;
+    color: #161823;
+    margin-top: 0;
+    line-height: 1;
+}
+.name {
+    font-size: 1.4rem;
+    color: #161823bf;
+}
+.status {
+    font-size: 1.7rem;
+    margin-left: 6px;
+}
+.check {
+    font-size: 1.4rem;
+    color: rgb(32, 213, 236);
+    margin-left: 6px;
+}
+.number ~ .number {
+    margin-left: 20px;
+}

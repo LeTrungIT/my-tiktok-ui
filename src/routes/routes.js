@@ -5,6 +5,7 @@ import Upload from '~/pages/Upload';
 import Search from '~/pages/Search';
 import { HeaderOnlyLayout } from '~/layouts';
 import config from '~/config';
+import Live from '~/pages/Live';
 
 const publicRoutes = [
     {
@@ -45,7 +46,7 @@ const publicRoutes = [
     },
     {
         path: config.routes.live,
-        component: Search,
+        component: Live,
     },
 ];
 const privateRoutes = {};
