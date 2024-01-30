@@ -70,7 +70,7 @@ function Search() {
                 render={(attrs) => (
                     <div className={cx('search-result')} tabIndex="-1" {...attrs}>
                         <PopperWrapper>
-                            <h4 className={cx('search-title')}>Accounts</h4>
+                            <h4 className={cx('search-title')}>Các tài khoản</h4>
                             {searchResult.map((result) => {
                                 return <AccountItem key={result.id} data={result} />;
                             })}
@@ -82,7 +82,7 @@ function Search() {
                 <div className={cx('search')}>
                     <input
                         value={searchValue}
-                        placeholder="Search accounts or videos"
+                        placeholder="Tìm kiếm"
                         spellCheck={false}
                         onChange={handleInputChange}
                         ref={inputRef}

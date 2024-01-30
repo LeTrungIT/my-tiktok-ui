@@ -5,10 +5,14 @@ import styles from './Sidebar.module.scss';
 import Menu, { MenuItem } from './Menu';
 import config from '~/config';
 import {
+    ExploreActiveIcon,
+    ExploreIcon,
     HomeActiveIcon,
     HomeIcon,
     LiveActiveIcon,
     LiveIcon,
+    ProfileActiveIcon,
+    ProfileIcon,
     UserGroupActiveIcon,
     UserGroupIcon,
 } from '~/components/Icons';
@@ -34,17 +38,34 @@ function Sidebar() {
     return (
         <aside className={cx('wrapper')}>
             <Menu>
-                <MenuItem to={config.routes.home} title="For You" icon={<HomeIcon />} activeIcon={<HomeActiveIcon />} />
+                <MenuItem
+                    to={config.routes.home}
+                    title="Dành cho bạn"
+                    icon={<HomeIcon />}
+                    activeIcon={<HomeActiveIcon />}
+                />
                 <MenuItem
                     to={config.routes.following}
-                    title="Following"
+                    title="Đang Follow"
                     icon={<UserGroupIcon />}
                     activeIcon={<UserGroupActiveIcon />}
                 />
+                <MenuItem
+                    to={config.routes.upload}
+                    title="Khám phá"
+                    icon={<ExploreIcon />}
+                    activeIcon={<ExploreActiveIcon />}
+                />
                 <MenuItem to={config.routes.live} title="LIVE" icon={<LiveIcon />} activeIcon={<LiveActiveIcon />} />
+                <MenuItem
+                    to={config.routes.profile}
+                    title="Hồ sơ"
+                    icon={<ProfileIcon />}
+                    activeIcon={<ProfileActiveIcon />}
+                />
             </Menu>
-            <SuggestAccounts label="Suggested Accounts" data={suggestedUsers} />
-            <SuggestAccounts label="Following Accounts" data={suggestedUsers} />
+            <SuggestAccounts label="Gợi ý tài khoản" data={suggestedUsers} />
+            <SuggestAccounts label="Các tài khoản đang follow" data={suggestedUsers} />
         </aside>
     );
 }

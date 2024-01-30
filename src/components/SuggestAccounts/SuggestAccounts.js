@@ -14,7 +14,7 @@ function SuggestAccounts({ label, data = [] }) {
                 <AccountItem key={user.id} data={user} />
             ))}
 
-            <p className={cx('more-btn')}>See more</p>
+            <p className={cx('more-btn')}>Xem thêm</p>
         </div>
     );
 }

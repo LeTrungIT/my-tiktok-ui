@@ -27,9 +27,9 @@ const cx = classNames.bind(styles);
 const MENU_ITEMS = [
     {
         icon: <FontAwesomeIcon icon={faEarthAsia} />,
-        title: 'English',
+        title: 'Tiếng Việt',
         children: {
-            title: 'Language',
+            title: 'Ngôn ngữ',
             data: [
                 { type: 'language', code: 'en', title: 'English' },
                 { type: 'language', code: 'vi', title: 'Tiếng Việt' },
@@ -42,8 +42,8 @@ const MENU_ITEMS = [
             ],
         },
     },
-    { icon: <FontAwesomeIcon icon={faCircleQuestion} />, title: 'Feedback and Help', to: config.routes.feedback },
-    { icon: <FontAwesomeIcon icon={faKeyboard} />, title: 'Keyboard shortcuts' },
+    { icon: <FontAwesomeIcon icon={faCircleQuestion} />, title: 'Phản hồi và trợ giúp', to: config.routes.feedback },
+    { icon: <FontAwesomeIcon icon={faKeyboard} />, title: 'Phím tắt trên bàn phím' },
 ];
 
 function Header() {
@@ -51,16 +51,14 @@ function Header() {
 
     //Xu ly Logic
 
-    const handleMenuChange = (menuItem) => {
-        console.log(menuItem);
-    };
+    const handleMenuChange = (menuItem) => {};
 
     const userMenu = [
-        { icon: <FontAwesomeIcon icon={faUser} />, title: 'View profile', to: '/@@nguyenvana' },
-        { icon: <FontAwesomeIcon icon={faCoins} />, title: 'Get coins', to: config.routes.coins },
-        { icon: <FontAwesomeIcon icon={faGear} />, title: 'Settings' },
+        { icon: <FontAwesomeIcon icon={faUser} />, title: 'Xem hồ sơ', to: '/@@nguyenvana' },
+        { icon: <FontAwesomeIcon icon={faCoins} />, title: 'Nhận xu', to: config.routes.coins },
+        { icon: <FontAwesomeIcon icon={faGear} />, title: 'Cài đặt' },
         ...MENU_ITEMS,
-        { icon: <FontAwesomeIcon icon={faSignOut} />, title: 'Log out', to: config.routes.logout, separate: true },
+        { icon: <FontAwesomeIcon icon={faSignOut} />, title: 'Đăng xuất', to: config.routes.logout, separate: true },
     ];
 
     return (
@@ -72,24 +70,24 @@ function Header() {
                 <Search />
 
                 <div className={cx('actions')}>
+                    <Tippy content="Upload videos" placement="bottom" delay={[0, 0]}>
+                        <Button
+                            to={config.routes.upload}
+                            small
+                            className={cx('user-upload-btn')}
+                            leftIcon={<PlusIcon width="2rem" />}
+                        >
+                            Tải lên
+                        </Button>
+                    </Tippy>
                     {currentUser ? (
                         <>
-                            <Tippy content="Upload videos" placement="bottom" delay={[0, 0]}>
-                                <Button
-                                    to={config.routes.upload}
-                                    small
-                                    className={cx('user-upload-btn')}
-                                    leftIcon={<PlusIcon width="2rem" />}
-                                >
-                                    Upload
-                                </Button>
-                            </Tippy>
-                            <Tippy content="Messages" placement="bottom" delay={[0, 0]}>
+                            <Tippy content="Tin nhắn" placement="bottom" delay={[0, 0]}>
                                 <button className={cx('action-btn')}>
                                     <MessageIcon />
                                 </button>
                             </Tippy>
-                            <Tippy content="Inbox" placement="bottom">
+                            <Tippy content="Hộp thư" placement="bottom">
                                 <button className={cx('action-btn')}>
                                     <InboxIcon />
                                 </button>
@@ -97,8 +95,7 @@ function Header() {
                         </>
                     ) : (
                         <>
-                            <Button text>Upload</Button>
-                            <Button primary>Log in</Button>
+                            <Button primary>Đăng nhập</Button>
                         </>
                     )}
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
